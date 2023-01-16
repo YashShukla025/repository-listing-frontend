@@ -13,8 +13,8 @@ import { Injectable } from '@angular/core';
 
     constructor(private httpClient : HttpClient) {}
 
-    getGitProfile(): Observable<UserData>{
-      return this.httpClient.get<UserData>('http://localhost:8888/git/userinfo/Yashshukla025');
+    getGitProfile(username:any): Observable<UserData>{
+      return this.httpClient.get<UserData>('http://localhost:8888/git/userinfo/'+username);
     }
 
     getRepositories(): Observable<RepoData>{

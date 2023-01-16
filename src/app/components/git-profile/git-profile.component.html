@@ -1,4 +1,10 @@
 <div class="container">
+  <div class="spin" *ngIf="userdata.message != null">
+<div class="spinner-border" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+
+  </div>
     <br />
     <div class="row" >
       <div class="col-3">
@@ -9,9 +15,7 @@
         <div class="row"><h6>{{userdata.bio}}</h6></div>
         <div class="row "><h6>{{userdata.location}}</h6></div>
         <div class="row"><h6>Twitter:{{userdata.twitter_username == null?"No ID":userdata.twitter_username}}</h6></div>
-        <!-- <div class="spinner-border" role="status">
-            <span class="visually-hidden">Loading...</span>
-          </div> -->
+        
       </div>
     </div>
     <br/>
@@ -20,7 +24,7 @@
     <div class="listed-repos" *ngFor="let a of repoData; let index = index">
     <div class="row" *ngIf="index%2 == 0"> 
       <div class="col-5  cards">
-        <h1>{{repoData[index].name}}</h1>
+        <h1><a href="{{repoData[index].html_url}}">{{repoData[index].name}}</a> </h1>
         <h5>{{repoData[index].description== null?"No Description":repoData[index].description}}</h5>
        
         <!-- <div *ngFor="let c of a.topics; let i = index">
@@ -29,7 +33,7 @@
       </div>
       <div class="col-2"></div>
       <div class="col-5  cards">
-        <h1>{{repoData[index+1].name}}</h1>
+        <h1><a href="{{repoData[index+1].html_url}}">{{repoData[index+1].name}}</a> </h1>
         <h5>{{repoData[index+1].description== null?"No Description":repoData[index+1].description}}</h5>
        
         <!-- <div *ngFor="let c of a.topics; let i = index">

@@ -1,0 +1,13 @@
+<!-- <p>home-page works!</p> -->
+<div class="home" *ngIf="userdata.message == null">
+<div class="d-flex align-items-center justify-content-center" style="height: 400px;">
+<form>
+    <input type="text" id="username" placeholder="Enter Git Profile" name="username" [(ngModel)]="username">
+</form>
+<br>
+<button class="btn btn-primary" type="submit" (click)="checkGitProfile()">Check</button>
+</div>
+</div>
+<div class="home1" *ngIf="userdata.message!= null">
+<app-git-profile [title] = "username"></app-git-profile>
+</div>

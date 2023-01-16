@@ -8,7 +8,7 @@ import {DataService} from './../../data.service';
   styleUrls: ['./git-profile.component.css']
 })
 export class GitProfileComponent {
-  constructor(private httpClient: HttpClient,public dataService: DataService){}
+  constructor(public dataService: DataService){}
   userdata:any = {};
 
 repos = [
@@ -56,15 +56,9 @@ repos = [
 repoData:any = [];
 
 
-// getGitProfile(){
-// //   this.httpClient.get('http://localhost:8888/git/userinfo/Yashshukla025').subscribe((res)=>{
-// //       console.log(res);
-// // this.userData = res;
-// //   });
-// }
 
 ngOnInit() {
-   this.dataService.getGitProfile().subscribe((data: {}) => {
+   this.dataService.getGitProfile("Yashshukla025").subscribe((data: {}) => {
     this.userdata = data;
   });
   this.dataService.getRepositories().subscribe((data: {}) => {

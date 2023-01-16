@@ -15,7 +15,7 @@ export class AppComponent {
 
         constructor(private dataService: DataService){
 
-            this.gitProfileObservable = this.dataService.getGitProfile();
+            this.gitProfileObservable = this.dataService.getGitProfile("jlasss");
 
               
         }
