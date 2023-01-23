@@ -14,11 +14,11 @@ import { Injectable } from '@angular/core';
     constructor(private httpClient : HttpClient) {}
 
     getGitProfile(username:any): Observable<UserData>{
-      return this.httpClient.get<UserData>('http://localhost:8888/git/userinfo/'+username);
+      return this.httpClient.get<UserData>('https://repository-listing-backend-yashshukla025.onrender.com/git/userinfo/'+username);
     }
 
     getRepositories(): Observable<RepoData>{
-      return this.httpClient.get<RepoData>('http://localhost:8888/git/getAllRepos/Yashshukla025/');
+      return this.httpClient.get<RepoData>('https://repository-listing-backend-yashshukla025.onrender.com/git/getAllRepos/Yashshukla025/');
     }
 
     }

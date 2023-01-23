@@ -8,6 +8,7 @@
     <br />
     <div class="row" >
       <div class="col-3">
+        {{title}}
         <img class="rounded-circle" src="{{userdata.avatar_url}}" />
       </div>
       <div class="col-9">
@@ -23,7 +24,7 @@
     <br />
     <div class="listed-repos" *ngFor="let a of repoData; let index = index">
     <div class="row" *ngIf="index%2 == 0"> 
-      <div class="col-5  cards">
+      <div class="col-5  cards" *ngIf="repoData[index]!=null">
         <h1><a href="{{repoData[index].html_url}}">{{repoData[index].name}}</a> </h1>
         <h5>{{repoData[index].description== null?"No Description":repoData[index].description}}</h5>
        
@@ -32,7 +33,7 @@
         </div> -->
       </div>
       <div class="col-2"></div>
-      <div class="col-5  cards">
+      <div class="col-5  cards" *ngIf="repoData[index+1]!=null">
         <h1><a href="{{repoData[index+1].html_url}}">{{repoData[index+1].name}}</a> </h1>
         <h5>{{repoData[index+1].description== null?"No Description":repoData[index+1].description}}</h5>
        

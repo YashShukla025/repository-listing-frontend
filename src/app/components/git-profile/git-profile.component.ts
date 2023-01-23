@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {DataService} from './../../data.service';
 // import {UserData} from './../../model/userdata';
@@ -10,6 +10,8 @@ import {DataService} from './../../data.service';
 export class GitProfileComponent {
   constructor(public dataService: DataService){}
   userdata:any = {};
+  title:any = "";
+  @Input() public usrname2 :any = "";
 
 repos = [
   {'name':"IoT",
@@ -58,10 +60,13 @@ repoData:any = [];
 
 
 ngOnInit() {
+  
    this.dataService.getGitProfile("Yashshukla025").subscribe((data: {}) => {
     this.userdata = data;
   });
   this.dataService.getRepositories().subscribe((data: {}) => {
+    console.log(data);
     this.repoData = data;});
 }
+
 }

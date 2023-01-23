@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component,Output, EventEmitter } from '@angular/core';
 import {DataService} from './../../data.service';
 
 @Component({
@@ -12,7 +12,9 @@ export class HomePageComponent {
   constructor(public dataService: DataService){}
   userdata:any = {};
   username: string = '';
+  @Output() public usrname = new EventEmitter<any>();
   checkGitProfile() {
+    this.usrname.emit(this.username);
     this.dataService.getGitProfile(this.username).subscribe((data: any) => {
       if(data.message == "Not Found"){
         console.log(this.username);

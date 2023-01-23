@@ -9,6 +9,11 @@ import { UserData } from './model/userdata';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  data = "";
+handleResults(srch: string) {
+throw new Error('Method not implemented.');
+this.data = srch;
+}
   
         
         private gitProfileObservable : Observable<any> ; 
@@ -19,4 +24,5 @@ export class AppComponent {
 
               
         }
+        
 }
